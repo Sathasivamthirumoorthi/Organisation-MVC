@@ -1,0 +1,79 @@
+# ASP.NET Core MVC
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+obj/
+bin/
+
+# NuGet packages
+*/[Oo]bj/
+*/[Bb]in/
+*.nuget.props
+*.nuget.targets
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# MSTest test Results
+[Tt]est[Rr]esult.xml
+[Bb]uild[Ll]og.txt
+
+# ASP.NET Core Web Application
+
+# .vscode
+.vscode/
+
+# Visual Studio IntelliSense cache
+*.vs
+
+# Resharper
+_resharper*/
+
+
+# NuGet
+packages/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+# Roslyn cache directories
+*.ide/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an ATL Project
+[Dd]ebug*/
+[Rr]elease*/
+dlldata.c
+
+# BenchmarkDotNet Artifacts
+BenchmarkDotNet.Artifacts/
