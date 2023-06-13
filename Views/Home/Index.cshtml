@@ -1,27 +1,29 @@
-﻿<div class="container">
+﻿@model DashboardViewModel
+
+<div class="container">
     <div class="row">
         <div class="col-md-3 col-sm-6">
-            <div class="counter">
-                <span class="counter-value">40</span>
-                <h3>Web Designing</h3>
+            <div class="counter red">
+                <span class="counter-value">@Model.TotalProducts</span>
+                <h3>Products</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalCustomers</span>
+                <h3>Customers</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalDepartments</span>
+                <h3>Departments</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalEmployees</span>
+                <h3>Employees</h3>
             </div>
         </div>
     </div>
