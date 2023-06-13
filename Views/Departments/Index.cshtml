@@ -1,35 +1,56 @@
 ﻿@model IEnumerable<Organization.Models.Department>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Departments";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartmentName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DepartmentID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DepartmentID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DepartmentID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!-- Container-fluid starts -->
+<!-- Main content starts -->
+<div class="container-fluid">
+    <!-- 2-1 block start -->
+    <div class="row m-3">
+        <div class="col-xl-12 col-lg-12">
+            <h1>Departments Table</h1> <br>
+            <div class="card">
+                <div class="card-block">
+                    <div class="table-responsive">
+                        <table class="table m-b-0 photo-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DepartmentName)
+                                    </th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.DepartmentID"
+                                               class="btn btn-primary">Edit</a>
+                                            <a asp-action="Details" asp-route-id="@item.DepartmentID"
+                                               class="btn btn-secondary">Details</a>
+                                            <a asp-action="Delete" asp-route-id="@item.DepartmentID"
+                                               class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+            </p>
+        </div>
+    </div>
+    <!-- 2-1 block end -->
+</div>
+<!-- Main content ends -->
+<!-- Container-fluid ends -->
