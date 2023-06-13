@@ -59,7 +59,7 @@ namespace Organization.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID,ProductID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
