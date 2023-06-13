@@ -26,4 +26,10 @@ public partial class OrganisationContext : DbContext
     public virtual DbSet<Organization.Models.Department>? Department { get; set; }
 
     public virtual DbSet<Organization.Models.Employee>? Employee { get; set; }
+
+    public virtual DbSet<Organization.Models.Product>? Product { get; set; }
+
+    public virtual DbSet<Organization.Models.Customer>? Customer { get; set; }
+
+
 }
