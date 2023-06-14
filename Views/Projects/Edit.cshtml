@@ -5,12 +5,8 @@
     var employeeNames = ViewData["EmployeeNames"] as List<string>;
 }
 
-
-}
-
-<h1>Edit</h1>
-
-<h4>Project</h4>
+<div class="container-fluid">
+<h1>Edit Project</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,23 +17,22 @@
                 <label asp-for="ProjectName" class="control-label"></label>
                 <input asp-for="ProjectName" class="form-control" />
                 <span asp-validation-for="ProjectName" class="text-danger"></span>
-            </div>
+                </div> <br>
             <div class="form-group">
                 <label asp-for="DueDate" class="control-label"></label>
                 <input asp-for="DueDate" class="form-control" />
                 <span asp-validation-for="DueDate" class="text-danger"></span>
-            </div>
+                </div> <br>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
+                </div> <br>
             <div class="form-group">
                 <label asp-for="ProductID" class="control-label"></label>
                 <select id="productDropdown" class="form-control" asp-for="ProductID" asp-items="@ViewBag.ProductID"></select>
                 <span asp-validation-for="ProductID" class="text-danger"></span>
-            </div>
-
+                </div> <br>
             <div class="form-group">
                 <label asp-for="SelectedEmployees" class="control-label"></label>
                 <select id="employeeDropdown" multiple class="form-control" asp-for="SelectedEmployees">
@@ -46,16 +41,14 @@
                         <option value="@name">@name</option>
                     }
                 </select>
-            </div>
+                </div> <br>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-warning">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+</div>    
 </div>
 
 @section Scripts {
