@@ -29,14 +29,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6 col-sm-6 offset-sm-1">
         <div class="mt-5">
             <canvas class="my-4 h-100 chart-canvas" id="barChart"></canvas>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 offset-sm-1">
         <div class="mt-5">
-            <canvas class="my-4 h-100 chart-canvas" id="pieChart"></canvas>
+            <canvas class="my-4 h-100 chart-canvas-pie" id="pieChart"></canvas>
         </div>
     </div>
 </div>
@@ -45,7 +45,14 @@
         height: 300px; /* Adjust the height as needed */
         margin-top: 20px; /* Add the desired margin-top value */
         padding: 10px; /* Add the desired padding value */
-        border: 1px solid #ccc; /* Add border styles if needed */
+        /* Add border styles if needed */
+    }
+
+    .chart-canvas-pie {
+        height: 20px; /* Adjust the height as needed */
+        margin-top: 20px; /* Add the desired margin-top value */
+        padding: 10px; /* Add the desired padding value */
+        /* Add border styles if needed */
     }
 
 </style>
@@ -55,36 +62,43 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script type="text/javascript">
-        var ctx = document.getElementById('barChart').getContext('2d');
-        var labels = ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"];
-        var data = [50, 75, 100, 80, 60];
+<script type="text/javascript">
 
-        var barChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Data',
-                    data: data,
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)'
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var labels = @Html.Raw(Json.Serialize(Model.Products));
+    var data = @Html.Raw(Json.Serialize(Model.TotalRevenues));
+
+
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Revenue in Million',
+                data: data,
+                backgroundColor: '#0E86D4'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 <script type="text/javascript">
     var ctx = document.getElementById('pieChart').getContext('2d');
-    var labels = ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"];
-    var data = [50, 75, 100, 80, 60];
-    var backgroundColors = ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(153, 102, 255, 0.5)'];
+    var labels = @Html.Raw(Json.Serialize(Model.Products));
+    var data = [50, 75, 100];
+    var backgroundColors = [];
+
+    // Generate random colors for each dataset
+    for (var i = 0; i < labels.length; i++) {
+        backgroundColors.push(generateRandomColor());
+    }
 
     var pieChart = new Chart(ctx, {
         type: 'pie',
@@ -97,9 +111,26 @@
         },
         options: {
             responsive: true,
-            legend: {
-                position: 'bottom' // Set the legend position to 'bottom'
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20
+                    }
+                }
             }
         }
     });
+    function generateRandomColor() {
+        // Generate random RGB values between 0 and 255
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+
+        // Create the RGB color string
+        var color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+
+        return color;
+    }
+
 </script>

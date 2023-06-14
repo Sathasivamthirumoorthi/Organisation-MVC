@@ -17,15 +17,34 @@ namespace Organization.Controllers
             _context = context;
         }
 
+
         public IActionResult Index()
         {
+            var products = _context.Product.ToList();
+
+            int[] RevenueValues = new int[products.Count()];
+
+            string[] Productnames = new string[products.Count()];
+
+            for (int i = 0; i < products.Count(); i++)
+            {
+                RevenueValues[i] = products[i].ProductRevenue;
+            }
+
+            for (int i = 0; i < products.Count(); i++)
+            {
+                Productnames[i] = products[i].ProductName;
+            }
+
             var viewModel = new DashboardViewModel
             {
                 TotalCustomers = _context.Customer.Count(),
                 TotalEmployees = _context.Employee.Count(),
                 TotalDepartments = _context.Department.Count(),
                 TotalProducts = _context.Product.Count(),
-              
+                TotalRevenues = RevenueValues,
+                Products = Productnames,
+
                 // Calculate total counts for other models and assign them to the corresponding properties
             };
 

@@ -8,5 +8,8 @@
         public int TotalDepartments { get; set; }
         public int TotalEmployees { get; set; }
 
+        public int[] TotalRevenues { get; set; }
+
+        public string[] Products { get; set; }
     }
 }

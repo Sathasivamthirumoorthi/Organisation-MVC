@@ -1,12 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Organization.Models
 {
     public class Employee
     {
         public int EmployeeID { get; set; }
+
+        [Display(Name = "Name")]
         public string ?EmployeeName { get; set; }
+
+        [Display(Name = "Salary")]
         public decimal EmployeeSalary { get; set; }
+
+        [Display(Name = "Age")]
         public decimal EmployeeAge { get; set; }
 
         [ForeignKey("Department")]
