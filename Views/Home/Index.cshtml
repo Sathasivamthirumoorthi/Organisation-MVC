@@ -1,28 +1,105 @@
-﻿<div class="container">
+﻿@model DashboardViewModel
+
+<div class="container">
     <div class="row">
         <div class="col-md-3 col-sm-6">
-            <div class="counter">
-                <span class="counter-value">40</span>
-                <h3>Web Designing</h3>
+            <div class="counter red">
+                <span class="counter-value">@Model.TotalProducts</span>
+                <h3>Products</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalCustomers</span>
+                <h3>Customers</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalDepartments</span>
+                <h3>Departments</h3>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="counter blue">
-                <span class="counter-value">38</span>
-                <h3>Web Development</h3>
+                <span class="counter-value">@Model.TotalEmployees</span>
+                <h3>Employees</h3>
             </div>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="mt-5">
+            <canvas class="my-4 h-100 chart-canvas" id="barChart"></canvas>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="mt-5">
+            <canvas class="my-4 h-100 chart-canvas" id="pieChart"></canvas>
+        </div>
+    </div>
+</div>
+<style>
+    .chart-canvas {
+        height: 300px; /* Adjust the height as needed */
+        margin-top: 20px; /* Add the desired margin-top value */
+        padding: 10px; /* Add the desired padding value */
+        border: 1px solid #ccc; /* Add border styles if needed */
+    }
+
+</style>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript">
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var labels = ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"];
+        var data = [50, 75, 100, 80, 60];
+
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Data',
+                    data: data,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+<script type="text/javascript">
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var labels = ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"];
+    var data = [50, 75, 100, 80, 60];
+    var backgroundColors = ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(153, 102, 255, 0.5)'];
+
+    var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: backgroundColors
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'bottom' // Set the legend position to 'bottom'
+            }
+        }
+    });
+</script>
