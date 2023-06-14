@@ -33,6 +33,11 @@
                 <select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
                 <span asp-validation-for="DepartmentID" class="text-danger"></span>
                 </div> <br>
+                <div class="form-group">
+                    <label asp-for="ProductID" class="control-label"></label>
+                    <select asp-for="ProductID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+                    <span asp-validation-for="ProductID" class="text-danger"></span>
+                </div> <br>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-warning">Back to List</a>
