@@ -30,37 +30,6 @@ File: main.css
 @import url("generic-class.css");
 @import url("svg-weather.css");
 @import url("menu.css");
-body {
-  font-size: 15px;
-  overflow-x: hidden;
-  background-color: #E5E5E5;
-  font-family: 'Ubuntu', sans-serif; }
-
-* a {
-  color: #00b9f5;
-  font-size: 15px;
-  font-weight: 400;
-  cursor: pointer;
-  -webkit-transition: all 0.3s 0s;
-  -moz-transition: all 0.3s 0s;
-  -ms-transition: all 0.3s 0s;
-  transition: all 0.3s 0s; }
-  * a:focus, * a:hover {
-    text-decoration: none; }
-
-*:focus {
-  outline: none !important; }
-
-p {
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #666;
-  margin: 0; }
-
-i {
-  cursor: pointer; }
-
 .card_main {
   margin-bottom: 30px;
   border: none;
@@ -74,18 +43,8 @@ i {
   text-transform: capitalize;
   margin-bottom: 40px; }
 
-label {
-  color: rgba(43, 61, 81, 0.8);
-  text-transform: capitalize; }
 
-h6 {
-  color: #757575;
-  font-weight: 500; }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0; }
 
 .slimScrollBar {
   width: 4px !important; }
