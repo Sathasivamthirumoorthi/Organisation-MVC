@@ -109,18 +109,14 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </li>
-                    <li class="nav-item">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </li>
+                        <a class="nav-link text-white active" asp-area="" asp-controller="Home" asp-action="Index">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid" /></svg>
 
+                            Home
+                        </a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Products" asp-action="Index">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid" /></svg>
 
                             Products
@@ -128,17 +124,25 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Customers" asp-action="Index">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid" /></svg>
 
-                            Products
+                            Customers
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Employees" asp-action="Index">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid" /></svg>
+
+                            Employees
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Departments" asp-action="Index">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid" /></svg>
 
-                            Products
+                            Departments
                         </a>
                     </li>
                 </ul>
