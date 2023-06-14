@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
 <div class="container-fluid">
 <h1>Edit Department</h1>
 <hr />
@@ -18,9 +17,14 @@
                 <span asp-validation-for="DepartmentName" class="text-danger"></span>
             </div> <br>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-warning">Back to List</a>
+                <label asp-for="DepartmentLocation" class="control-label"></label>
+                <input asp-for="DepartmentLocation" class="form-control" />
+                <span asp-validation-for="DepartmentLocation" class="text-danger"></span>
                 </div> <br>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-warning">Back to List</a>
+            </div>
         </form>
     </div>
 </div>

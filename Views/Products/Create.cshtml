@@ -16,6 +16,16 @@
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div> <br>
+                <div class="form-group">
+                    <label asp-for="ProductManagerName" class="control-label"></label>
+                    <input asp-for="ProductManagerName" class="form-control" />
+                    <span asp-validation-for="ProductManagerName" class="text-danger"></span>
+                </div> <br>
+                <div class="form-group">
+                    <label asp-for="ProductRevenue" class="control-label"></label>
+                    <input asp-for="ProductRevenue" class="form-control" />
+                    <span asp-validation-for="ProductRevenue" class="text-danger"></span>
+                </div> <br>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-warning">Back to List</a>
