@@ -92,7 +92,8 @@
 <script type="text/javascript">
     var ctx = document.getElementById('pieChart').getContext('2d');
     var labels = @Html.Raw(Json.Serialize(Model.Products));
-    var data = [50, 75, 100];
+    var data = @Html.Raw(Json.Serialize(Model.TotalProductEmployeeCount));
+    console.log(data);
     var backgroundColors = [];
 
     // Generate random colors for each dataset

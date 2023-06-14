@@ -10,6 +10,7 @@
 
         public int[] TotalRevenues { get; set; }
 
+        public int[] TotalProductEmployeeCount { get; set; }
         public string[] Products { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Organization.Models;
 using System.Diagnostics;
 
@@ -17,14 +19,50 @@ namespace Organization.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public IActionResult GetEmployeeCountsByProduct()
+        {
+            var products = _context.Product.Include(p => p.Employees).ToList();
+
+            List<int> employeeCount = new List<int>();
+
+            var employeeCountsByProduct = products.Select(p => new
+            {
+                ProductName = p.ProductName,
+                EmployeeCount = p.Employees.Count
+            }).ToList();
+
+            foreach(var product in employeeCountsByProduct)
+            {
+                employeeCount.Add(product.EmployeeCount);
+            }
+
+            return Json(employeeCount);
+        }
 
         public IActionResult Index()
         {
             var products = _context.Product.ToList();
 
+            var Employees = _context.Product.Include(p => p.Employees).ToList();
+
+            List<int> employeeCount = new List<int>();
+
             int[] RevenueValues = new int[products.Count()];
 
             string[] Productnames = new string[products.Count()];
+
+            var employeeCountsByProduct = Employees.Select(p => new
+            {
+                ProductName = p.ProductName,
+                EmployeeCount = p.Employees.Count
+            }).ToList();
+
+            foreach (var product in employeeCountsByProduct)
+            {
+                employeeCount.Add(product.EmployeeCount);
+            }
+            
 
             for (int i = 0; i < products.Count(); i++)
             {
@@ -44,8 +82,9 @@ namespace Organization.Controllers
                 TotalProducts = _context.Product.Count(),
                 TotalRevenues = RevenueValues,
                 Products = Productnames,
+                TotalProductEmployeeCount = employeeCount.ToArray(),
 
-                // Calculate total counts for other models and assign them to the corresponding properties
+                
             };
 
             return View(viewModel);
