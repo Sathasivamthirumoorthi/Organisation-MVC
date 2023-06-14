@@ -49,6 +49,8 @@ namespace Organization.Controllers
         {
 
             ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName");
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName");
+                
             return View();
         }
 
@@ -74,7 +76,8 @@ namespace Organization.Controllers
                 Console.WriteLine(error);
             }
             ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID", employee.DepartmentID);
-            
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName",employee.ProductID);
+
             return View(employee);
         }
 

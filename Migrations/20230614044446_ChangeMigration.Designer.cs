@@ -11,8 +11,8 @@ using Organization.Models;
 namespace Organization.Migrations
 {
     [DbContext(typeof(OrganisationContext))]
-    [Migration("20230613023546_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20230614044446_ChangeMigration")]
+    partial class ChangeMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
