@@ -21,7 +21,8 @@ namespace Organization.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            var organisationContext = _context.Employee.Include(e => e.Department);
+            var organisationContext = _context.Employee.Include(e => e.Department).Include(e => e.Product);
+
             return View(await organisationContext.ToListAsync());
         }
 
@@ -59,7 +60,7 @@ namespace Organization.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID,ProductID")] Employee employee)
         {
             if (ModelState.IsValid)
             {

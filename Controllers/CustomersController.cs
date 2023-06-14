@@ -47,7 +47,7 @@ namespace Organization.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName");
             return View();
         }
 
