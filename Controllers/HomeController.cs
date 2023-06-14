@@ -25,6 +25,7 @@ namespace Organization.Controllers
                 TotalEmployees = _context.Employee.Count(),
                 TotalDepartments = _context.Department.Count(),
                 TotalProducts = _context.Product.Count(),
+              
                 // Calculate total counts for other models and assign them to the corresponding properties
             };
 

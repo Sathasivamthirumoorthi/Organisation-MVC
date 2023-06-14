@@ -7,5 +7,6 @@
 
         public int TotalDepartments { get; set; }
         public int TotalEmployees { get; set; }
+
     }
 }
