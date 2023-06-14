@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<Organization.Models.Project>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Project";
 
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<!-- Container-fluid starts -->
+<!-- Main content starts -->
+<div class="container-fluid">
+    <!-- 2-1 block start -->
+    <div class="row m-3">
+        <div class="col-xl-12 col-lg-12">
+            <h1>Project Table</h1> <br>
+            <div class="card">
+                <div class="card-block">
+                    <div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -44,11 +49,24 @@
                 @Html.DisplayFor(modelItem => item.Product.ProductName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProjectId" class="btn btn-primary">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ProjectId" class="btn btn-secondary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ProjectId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p>
+                <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+            </p>
+        </div>
+    </div>
+    <!-- 2-1 block end -->
+</div>
+<!-- Main content ends -->
+<!-- Container-fluid ends -->
