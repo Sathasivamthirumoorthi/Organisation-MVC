@@ -10,6 +10,9 @@ namespace Organization.Models
         }
         public int ProductID { get; set; }
         public string ProductName { get; set; }
+
+        public string ProductManagerName { get; set; }
+        public int ProductRevenue { get; set; }
         public ICollection<Employee> Employees { get; set; }
         public ICollection<Customer> Customers { get; set; }
 

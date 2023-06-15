@@ -3,22 +3,24 @@
 @{
     ViewData["Title"] = "Departments";
 }
-
 <!-- Container-fluid starts -->
 <!-- Main content starts -->
 <div class="container-fluid">
     <!-- 2-1 block start -->
-    <div class="row m-3">
-        <div class="col-xl-12 col-lg-12">
-            <h1>Departments Table</h1> <br>
+    <div class="row m-1">
+        <div class="col-xl-14 col-lg-14">
+            <h1>Department Table</h1> <br>
             <div class="card">
                 <div class="card-block">
                     <div class="table-responsive">
-                        <table class="table m-b-0 photo-table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.DepartmentName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DepartmentLocation)
                                     </th>
                                     <th>Operations</th>
                                 </tr>
@@ -31,12 +33,12 @@
                                             @Html.DisplayFor(modelItem => item.DepartmentName)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" asp-route-id="@item.DepartmentID"
-                                               class="btn btn-primary">Edit</a>
-                                            <a asp-action="Details" asp-route-id="@item.DepartmentID"
-                                               class="btn btn-secondary">Details</a>
-                                            <a asp-action="Delete" asp-route-id="@item.DepartmentID"
-                                               class="btn btn-danger">Delete</a>
+                                            @Html.DisplayFor(modelItem => item.DepartmentLocation)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.DepartmentID" class="btn btn-primary">Edit</a>
+                                            <a asp-action="Details" asp-route-id="@item.DepartmentID" class="btn btn-secondary">Details</a>
+                                            <a asp-action="Delete" asp-route-id="@item.DepartmentID" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 }
@@ -44,7 +46,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> <br>
             <p>
                 <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
             </p>

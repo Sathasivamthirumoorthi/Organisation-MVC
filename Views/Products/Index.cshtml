@@ -20,6 +20,12 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.ProductName)
                                     </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProductManagerName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProductRevenue)
+                                    </th>
                                     <th>Operations</th>
                                 </tr>
                             </thead>
@@ -29,6 +35,12 @@
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.ProductName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductManagerName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductRevenue)
                                         </td>
                                         <td>
                                             <a asp-action="Edit" asp-route-id="@item.ProductID"
@@ -45,6 +57,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <p>
                 <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
             </p>

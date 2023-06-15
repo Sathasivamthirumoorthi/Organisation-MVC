@@ -21,6 +21,8 @@ namespace Organization.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName");
+
             var organisationContext = _context.Customer.Include(c => c.Product);
             return View(await organisationContext.ToListAsync());
         }
@@ -64,7 +66,7 @@ namespace Organization.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", customer.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", customer.ProductID);
             return View(customer);
         }
 
@@ -81,7 +83,7 @@ namespace Organization.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", customer.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", customer.ProductID);
             return View(customer);
         }
 
@@ -117,7 +119,7 @@ namespace Organization.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", customer.ProductID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", customer.ProductID);
             return View(customer);
         }
 

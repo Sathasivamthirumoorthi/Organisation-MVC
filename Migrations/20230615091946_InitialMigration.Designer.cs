@@ -12,8 +12,8 @@ using Organization.Models;
 namespace Organization.Migrations
 {
     [DbContext(typeof(OrganisationContext))]
-    [Migration("20230615001836_ProjectModel")]
-    partial class ProjectModel
+    [Migration("20230615091946_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,8 +60,10 @@ namespace Organization.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"));
 
+                    b.Property<string>("DepartmentLocation")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DepartmentName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DepartmentID");
@@ -114,9 +116,16 @@ namespace Organization.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
+                    b.Property<string>("ProductManagerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductRevenue")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductID");
 

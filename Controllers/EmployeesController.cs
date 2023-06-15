@@ -22,7 +22,6 @@ namespace Organization.Controllers
         public async Task<IActionResult> Index()
         {
             var organisationContext = _context.Employee.Include(e => e.Department).Include(e => e.Product);
-
             return View(await organisationContext.ToListAsync());
         }
 
@@ -36,6 +35,7 @@ namespace Organization.Controllers
 
             var employee = await _context.Employee
                 .Include(e => e.Department)
+                .Include(e => e.Product)
                 .FirstOrDefaultAsync(m => m.EmployeeID == id);
             if (employee == null)
             {
@@ -48,10 +48,8 @@ namespace Organization.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-
             ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName");
-                
             return View();
         }
 
@@ -68,17 +66,8 @@ namespace Organization.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            // Retrieve and log the validation errors
-            var validationErrors = ModelState.Values
-                .SelectMany(v => v.Errors)
-                .Select(e => e.ErrorMessage);
-            foreach (var error in validationErrors)
-            {
-                Console.WriteLine(error);
-            }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID", employee.DepartmentID);
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName",employee.ProductID);
-
+            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", employee.ProductID);
             return View(employee);
         }
 
@@ -95,7 +84,8 @@ namespace Organization.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID", employee.DepartmentID);
+            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", employee.ProductID);
             return View(employee);
         }
 
@@ -104,7 +94,7 @@ namespace Organization.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,EmployeeName,EmployeeSalary,EmployeeAge,DepartmentID,ProductID")] Employee employee)
         {
             if (id != employee.EmployeeID)
             {
@@ -131,7 +121,8 @@ namespace Organization.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID", employee.DepartmentID);
+            ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductName", employee.ProductID);
             return View(employee);
         }
 
@@ -145,6 +136,7 @@ namespace Organization.Controllers
 
             var employee = await _context.Employee
                 .Include(e => e.Department)
+                .Include(e => e.Product)
                 .FirstOrDefaultAsync(m => m.EmployeeID == id);
             if (employee == null)
             {

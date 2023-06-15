@@ -8,7 +8,7 @@
 <!-- Main content starts -->
 <div class="container-fluid">
     <!-- 2-1 block start -->
-    <div class="row m-3">
+    <div class="row">
         <div class="col-xl-12 col-lg-12">
             <h1>Customer Table</h1> <br>
             <div class="card">
@@ -46,7 +46,7 @@
                                             @Html.DisplayFor(modelItem => item.CustomerEmail)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Product.ProductID)
+                                            @Html.DisplayFor(modelItem => item.Product.ProductName)
                                         </td>
                                         <td>
                                             <a asp-action="Edit" asp-route-id="@item.ProductID"
@@ -62,7 +62,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> <br>
             <p>
                 <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
             </p>
