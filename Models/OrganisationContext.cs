@@ -31,5 +31,8 @@ public partial class OrganisationContext : DbContext
 
     public virtual DbSet<Organization.Models.Customer>? Customer { get; set; }
 
+    public virtual DbSet<Organization.Models.Project>? Project { get; set; }
+
+
 
 }
